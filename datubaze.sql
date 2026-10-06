@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS piezimes (
     FOREIGN KEY (lietotaja_id) REFERENCES lietotaji(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- Neveiksmīgie pieteikšanās mēģinājumi 
+--  pieteikšanās mēģinājumi 
 CREATE TABLE IF NOT EXISTS pieteiksanas_meginajumi (
     id INT AUTO_INCREMENT PRIMARY KEY,
     lietotajvards VARCHAR(255) NOT NULL,

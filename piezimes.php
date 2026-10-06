@@ -1,5 +1,5 @@
 <?php
-// CRUD: izveidošana (POST) un lasīšana (GET)
+
 require 'db.php';
 vajag_pieteikties();
 

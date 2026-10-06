@@ -1,13 +1,13 @@
 <?php
-// Kopīgie iestatījumi: datubāze, sesija, CSRF, žurnāls
+
 session_start();
 
-// MySQL (XAMPP noklusējums: lietotājs root, bez paroles)
+// MySQL 
 $pdo = new PDO('mysql:host=localhost;charset=utf8mb4', 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-// Datubāze un tabulas izveidojas automātiski (tas pats, kas datubaze.sql)
+
 $pdo->exec(file_get_contents(__DIR__ . '/datubaze.sql'));
 $pdo->exec('USE projekts');
 
@@ -20,7 +20,7 @@ function zurnals($teksts) {
     file_put_contents("$dir/app.log", $rinda, FILE_APPEND | LOCK_EX);
 }
 
-// CSRF aizsardzība
+
 function csrf_token() {
     if (empty($_SESSION['csrf'])) $_SESSION['csrf'] = bin2hex(random_bytes(32));
     return $_SESSION['csrf'];
